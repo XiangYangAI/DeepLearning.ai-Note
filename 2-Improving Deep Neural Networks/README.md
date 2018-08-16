@@ -1,7 +1,5 @@
 # Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
 This is the second course of the deep learning specialization at [Cousera](https://www.coursera.org/specializations/deep-learning) which is moderated by [DeepLearning.ai](https://www.deeplearning.ai/).The course is taught by Andrew Ng.
-## Table of contents
-[TOC]
 
 ## Course summary
 Here are the course summary as its given on the course [link](https://www.coursera.org/learn/deep-neural-network):
