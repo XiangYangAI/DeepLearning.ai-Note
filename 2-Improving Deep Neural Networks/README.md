@@ -4,6 +4,8 @@ This is the second course of the deep learning specialization at [Cousera](https
 ## Course summary
 Here are the course summary as its given on the course [link](https://www.coursera.org/learn/deep-neural-network):
 > This course will teach you the "magic" of getting deep learning to work well. Rather than the deep learning process being a black box, you will understand what drives performance, and be able to more systematically get good results. You will also learn TensorFlow.
+## Talbe of content
+{:toc max_level=3 }
 
 > After 3 weeks, you will: 
 > - Understand industry best-practices for building deep learning applications.
