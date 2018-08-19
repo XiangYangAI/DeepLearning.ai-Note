@@ -13,7 +13,7 @@ Here are the course summary as its given on the course [link](https://www.course
 > - Be able to implement a neural network in TensorFlow
 > This is the second course of the Deep Learning Specialization.
 
-##Week 1.Practical aspects of Deep Learning
+## Week 1.Practical aspects of Deep Learning
 > hyperparameter tuning 
 > set up data
 > optimization algorithm runs quickly
