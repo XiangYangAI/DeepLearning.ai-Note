@@ -4,8 +4,6 @@ This is the second course of the deep learning specialization at [Cousera](https
 ## Course summary
 Here are the course summary as its given on the course [link](https://www.coursera.org/learn/deep-neural-network):
 > This course will teach you the "magic" of getting deep learning to work well. Rather than the deep learning process being a black box, you will understand what drives performance, and be able to more systematically get good results. You will also learn TensorFlow.
-## Talbe of content
-{:toc max_level=3 }
 
 > After 3 weeks, you will: 
 > - Understand industry best-practices for building deep learning applications.
@@ -15,5 +13,62 @@ Here are the course summary as its given on the course [link](https://www.course
 > - Be able to implement a neural network in TensorFlow
 > This is the second course of the Deep Learning Specialization.
 
+##Week 1.Practical aspects of Deep Learning
+> hyperparameter tuning 
+> set up data
+> optimization algorithm runs quickly
 
+### Train/Dev/Test sets
+* In practice apply machine learning is a highly iterative process. So go around the cycle: `Idea => Code => Experiment`, you have to go through the loop many times to figure out your hyperparameters.
+* Data will be split into three parts:
+    * Training set. (Has to be the largest set)
+    * Hold-out cross validation set/Development or "dev" set
+    * Testing set
+* You will try to build a model upon training set then try to optimize hyperparameters on dev set as much as possible. Then after your model is ready you try and evaluate the testing set.
+* So the trend on the ratio of splitting the models:
+    * [100, 1000000) : 60/20/20
+    * [1000000, INF) : 98/1/1 or 99.5/0.25/0.25
+* Rule of thumb : make sure dev and test sets come from the same distribution.
+    * For example if cat training pictures are from the web and the dev/test pictures are from users cell phone they will mismatch. It is better to make sure that dev and test set are from the same distribution.
+* Its OK to only have a dev set without a testing set. But a lot of people in this case call the dev set as the test set. A better terminology is to call it a dev set as its used in the development.
+
+### Bias / Variance
+* Bias/Variance concept is easy to learn, but difficult to master.
+* In Deep learning era, we just talk less about the bias-variance trade-off, but still talk about bias and variance.
+* So some explanation here of Bias/Variance
+    * If model underfits training data (logistic regression of non linear data) it has a "high bias"
+    * If model overfits training data then it has a "high variance"
+
+      ![bias-variance](images/bias-variance.png)   
+
+
+* In high dimensional problems which you can't plot the data and visualize division boundary. Instead, there are couple of different metrics to understand bias and variance
+* Two key numbers to look at to understand bias and variance will be
+    * Train set error
+    * Dev set error
+   
+| Train set error | 1%  | 15% | 15% | 0.5% |
+| --- | --- | --- | --- | --- |
+| Dev set error | 11% | 16% | 30% | 1% |
+|  | High variance | High bias | High bias & high variance | low bias & low variance |
+
+* The table above is under the assumption : 
+    * the base (human/optional) error is quite small
+    * training and dev sets are drawn from the same distribution
+* high bias & high variance look like:
+  
+    ![high-variance-and-bias](images/high-b-v.png)
+
+### Basic Recipe for Machine Learning
+* High bias ? (diagnosed by training set performance), if so, try to:
+    * make NN bigger (more hidden layers, more hidden units)
+    * run trains longer (iterative times)
+    * some more advanced optimization algorithms
+    * find new NN architecture that's better suited for the problem (maybe work, maybe not)
+* High variance ? (diagnosed by dev set performance), if so, try to:
+    * get more data
+    * regularization
+    * find new NN architecture that's better suited for the problem (maybe work, maybe not)
+* In the earlier era of machine learning, there used to be a lot of discussion on "bias variance tradeoff".But in the modern deep learning, big data era, so long as you can keep training a bigger network almost always just reduce bias without necessarily hurting variance, or so long as  you can keep getting more data always reduce variance doesn't hurt bias much. 
+* Training a bigger NN never hurts(the cost is just computational time).
 
