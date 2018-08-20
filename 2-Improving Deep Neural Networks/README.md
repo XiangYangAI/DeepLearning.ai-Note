@@ -73,8 +73,8 @@ Here are the course summary as its given on the course [link](https://www.course
 * Training a bigger NN never hurts(the cost is just computational time).
 
 ### Regularization
-* Aim : Adding regularization to NN will help it reduce variance (overfitting training data)
-* Vector norm
+* Aim : Adding regularization to NN will help it reduce variance (overfitting training data) $||W|{|_1}$
+* Vector norm ${\left\| W \right\|_1}$
     * L1 norm : ${\left\| W \right\|_1} = \sum\limits_{j = 1}^{{n_x}} {\left| {{W_j}} \right|} $
     * L2 norm : $\left\| W \right\|_2^2 = \sum\limits_{j = 1}^{{n_x}} {W_j^2}  = {W^T}W$
 * Regularization for Logistic regression
