@@ -74,7 +74,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Regularization
 * Aim : Adding regularization to NN will help it reduce variance (overfitting training data) $||W|{|_1}$
-* Vector norm $$\sum\limits_{j = 1}^n {|{W_j}|} $$
+* Vector norm $$\sum\limits_{j = 1}^{{n_x}} {|{W_j}|} $$
     * L1 norm : ${\left\| W \right\|_1} = \sum\limits_{j = 1}^{{n_x}} {\left| {{W_j}} \right|} $
     * L2 norm : $\left\| W \right\|_2^2 = \sum\limits_{j = 1}^{{n_x}} {W_j^2}  = {W^T}W$
 * Regularization for Logistic regression
