@@ -76,7 +76,7 @@ Here are the course summary as its given on the course [link](https://www.course
 * Aim : Adding regularization to NN will help it reduce variance (overfitting training data) 
 * Vector norm 
     * L1 norm : ${\left\| W \right\|_1} = \sum\limits_{j = 1}^{{n_x}} {\left| {{W_j}} \right|} $
-    * L2 norm : $\left\| W \right\|_2^2 = {}\sum\limits_{j = 1}^{{n_x}} {W_j^2} = {W^T}W$
+    * L2 norm : $\left\| W \right\|_2^2 = \sum\limits_{j = 1}^{{n_x}} {W_j^2} = {W^T}W$
 * Regularization for Logistic regression
     * The normal cost function that we want to minimize is: $J(\omega ,b) = {1 \over m}\sum\limits_{i = 1}^m {L({{\hat y}^{(i)}},{y^i})} $
     * L1 regularization version : $J(\omega ,b) = {1 \over m}\sum\limits_{i = 1}^m {L({{\hat y}^{(i)}},{y^i}) + {\lambda  \over {2m}}} {\left\| W \right\|_1}$
