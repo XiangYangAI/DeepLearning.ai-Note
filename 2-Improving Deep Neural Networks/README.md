@@ -1,4 +1,7 @@
+# 
+
 # Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
+
 This is the second course of the deep learning specialization at [Cousera](https://www.coursera.org/specializations/deep-learning) which is moderated by [DeepLearning.ai](https://www.deeplearning.ai/).The course is taught by Andrew Ng.
 
 ## Course summary
@@ -111,6 +114,30 @@ Here are some intuitions:
 * A most common technique to implement dropout is called "Inverted dropout".
 * Code for inverted dropout:
    ```python
+   # Illustrate with layer l=3
+   # d3 is the dropout vector for layer 3
+   keep_prob = 0.8
+   d3 = np.random.rand(a3.shape[0], a3.shape[1]) < keep_prob 
+   # d3 is a boolea array, but the multiply operation works and will interpret the true and false values as one and zero
+   a3 = np.multiply(a3, d3) # or a3 = a3 * d3
    
+   a3 /= keep_prob # is called the inverted dropout technique
+   # This equation increase a3 in order to not reduce the expected value of output(z[4])
+   # (ensures that the expected value of a3 remains the same) - this makes test time easier because you have less of a scaling problem
    ```
 
+* Vector d[l] is used for forward and back propagation and is the same for them, but it is different for each iteration (pass) or training example.
+* At test time we don't use dropout. If you implement dropout at test time - it would add noise to predictions.
+
+### Understanding Dropout
+
+* In the previous video, the intuition was that dropout randomly knocks out units in your network. So it's as if on every iteration you're working with a smaller NN, and so using a smaller NN seems like it should have a regularizing effect.
+* Another intuition: can't rely on any one feature, so have to spread out weights.
+* It's possible to show that dropout has a similar effect to L2 regularization.
+* Dropout can have different `keep_prob` per layer.
+* The input layer dropout has to be near 1 (or 1 - no dropout) because you don't want to eliminate a lot of features.
+* If you're more worried about some layers overfitting than others, you can set a lower `keep_prob` for some layers than others. The downside is, this gives you even more hyperparameters to search for using cross-validation. _**(The downside is quite a hand intuition for me to understand, //TODO)**_One other alternative might be to have some layers where you apply dropout and some layers where you don't apply dropout and then just have one hyperparameter, which is a `keep_prob` for the layers for which you do apply dropouts.
+
+* A lot of researchers are using dropout with Computer Vision (CV) because they have a very big input size and almost never have enough data, so overfitting is the usual problem. And dropout is a regularization technique to prevent overfitting.
+* A downside of dropout is that the cost function J is not well defined and it will be hard to debug (plot J by iteration).
+  * To solve that need to turn off dropout, set all the `keep_prob`s to 1, and then run the code and check that it monotonically decreases J and then turn on the dropouts again.
