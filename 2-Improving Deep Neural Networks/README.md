@@ -166,3 +166,21 @@ Here are some intuitions:
   * Some tools to optimize cost function J : gradiant descent, momentum, RMS prop, Atom.
 
     Some tools not to overfit : regularization, getting more data.
+
+### Normalizing inputs
+
+* Normalize your inputs this will speed up the training process a lot.
+
+* Normalization take two steps:
+  * Subtract mean : 
+    * $\mu  = {1 \over m}\sum\limits_{i = 1}^m {{x^{(i)}}} $
+    * $x: = x - \mu $
+  * Normalize the variances
+    * ${\sigma ^2} = {1 \over m}\sum\limits_{i = 1}^m {{{({x^{(i)}})}^2}} $
+    * $x/ = {\sigma ^2}$
+
+* Why normalize inputs?
+  * Rough intuition is that : Cost function J will be more round and easier and faster to optimize when your features are all on similar scales and similar variances of each other.
+  * If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent (elongated) then optimizing it will take a long time.
+  * But if we normalize it the opposite will occur. The shape of the cost function will be consistent (look more symmetric like circle in 2D example) and we can use a larger learning rate alpha - the optimization will be faster.
+
