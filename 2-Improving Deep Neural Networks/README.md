@@ -141,3 +141,28 @@ Here are some intuitions:
 * A lot of researchers are using dropout with Computer Vision (CV) because they have a very big input size and almost never have enough data, so overfitting is the usual problem. And dropout is a regularization technique to prevent overfitting.
 * A downside of dropout is that the cost function J is not well defined and it will be hard to debug (plot J by iteration).
   * To solve that need to turn off dropout, set all the `keep_prob`s to 1, and then run the code and check that it monotonically decreases J and then turn on the dropouts again.
+
+### Other regularization methods
+
+* **Data augmentation** :
+
+  * For example in a computer vision data:
+    * You can flip all your pictures horizontally this will give you m more brand new data instances.
+    * You could also apply a distortion to get more data.
+
+  * For example in OCR, you can impose random rotations and distortions to digits/letters.
+  * New data obtained using this technique isn't as good as the real independent data, but still can be used as a regularization technique.
+
+* **Early stopping** :
+
+  * In this technique we plot the training set and the dev set cost together for each iteration. At some iteration the dev set cost will stop decreasing and will start increasing.
+
+  * We will pick the point at which the training set error and dev set error are best (lowest training cost with lowest dev cost).We will take these parameters as the best parameters.
+
+  * Andrew prefers to use L2 regularization instead of early stopping because this technique simultaneously tries to minimize the cost function and not to overfit which contradicts the **`orthogonalization`** principle (will be discussed further).
+
+  * But its advantage is that you don't need to search a hyperparameter like in other regularization approaches (like `$lambda$` in L2 regularization).
+
+  * Some tools to optimize cost function J : gradiant descent, momentum, RMS prop, Atom.
+
+    Some tools not to overfit : regularization, getting more data.
