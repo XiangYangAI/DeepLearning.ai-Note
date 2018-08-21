@@ -184,3 +184,23 @@ Here are some intuitions:
   * If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent (elongated) then optimizing it will take a long time.
   * But if we normalize it the opposite will occur. The shape of the cost function will be consistent (look more symmetric like circle in 2D example) and we can use a larger learning rate alpha - the optimization will be faster.
 
+### Vanishing / Exploding gradients
+
+* The Vanishing / Exploding gradients occurs when your derivatives become very small or very big.
+
+* To understand the problem, for the sake of simplicity ,suppose that we have a deep neural network with number of layers L, and all the activation functions are linear activation function $g\left( z \right) = z$, and ignore b : ${b^{[l]}} = 0$.
+
+  * Then   $\hat y = {W^{[L]}}{W^{[L - 1]}}{W^{[L - 2]}}...{W^{[2]}}{W^{[1]}}X$
+
+  * if we have 2 hidden units per layer , if:
+  $${W^l} = \left( {\matrix{   {1.5} & 0  \cr    0 & {1.5}  \cr  } } \right)$$then:
+$$\hat y = {W^L}{\left( {\matrix{   {1.5} & 0  \cr    0 & {1.5}  \cr  } } \right)^{L - 1}}X$$the activations can increase exponentially
+    * if:
+  $${W^l} = \left( {\matrix{   {0.5} & 0  \cr    0 & {0.5}  \cr  } } \right)$$then:
+$$\hat y = {W^L}{\left( {\matrix{   {0.5} & 0  \cr    0 & {0.5}  \cr  } } \right)^{L - 1}}X$$the activations can decrease exponentially
+* The last example explains that the activations (and similarly derivatives) will be decreased/increased exponentially as a function of number of layers.
+* So If W > I (Identity matrix) the activation and gradients will explode.
+* And If W < I (Identity matrix) the activation and gradients will vanish.
+* There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights. 
+### Weight Initialization for Deep Networks
+
